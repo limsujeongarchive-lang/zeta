@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로또 번호 추천 사이트</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <h1>로또 번호 추천</h1>
+      <p>자동 또는 원하는 개수로 로또 번호를 추천받아 보세요.</p>
+    </header>
+
+    <section class="controls">
+      <label for="count">추천 세트 개수</label>
+      <input type="number" id="count" min="1" max="10" value="1" />
+
+      <button id="generateBtn">번호 추천받기</button>
+      <button id="resetBtn" class="secondary">초기화</button>
+    </section>
+
+    <section id="results" class="results"></section>
+
+    <section class="note">
+      <h2>사용 방법</h2>
+      <ul>
+        <li>"번호 추천받기" 버튼을 눌러 6개 번호를 자동으로 생성합니다.</li>
+        <li>한 세트는 1부터 45까지의 중복 없는 번호 6개로 구성됩니다.</li>
+        <li>추천 결과는 랜덤으로 생성되며 당첨을 보장하지 않습니다.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
