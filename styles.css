@@ -107,6 +107,35 @@ button, input, select { font: inherit; color: inherit; }
 
 .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
+/* ── 페이지 이동 ──────────────────────────────────────── */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 18px 0 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-link {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color .15s, background .15s, border-color .15s;
+}
+
+.nav-link:hover { color: var(--ink); border-color: var(--rule); }
+
+.nav-link.is-current {
+  color: var(--ink);
+  font-weight: 600;
+  background: var(--card);
+  border-color: var(--rule);
+}
+
 /* ── 헤더 ─────────────────────────────────────────────── */
 .shell {
   width: min(100%, 1140px);
