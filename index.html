@@ -23,6 +23,59 @@
 
     <section id="results" class="results"></section>
 
+    <section class="claude">
+      <h2>Claude와 연결</h2>
+
+      <div class="field">
+        <label for="claudeKey">Claude API 키</label>
+        <input type="password" id="claudeKey" placeholder="Claude API 키를 입력하세요" />
+      </div>
+
+      <div class="field">
+        <label for="claudePrompt">질문</label>
+        <textarea id="claudePrompt" rows="4" placeholder="예: 로또 번호 추천 로직을 설명해줘"></textarea>
+      </div>
+
+      <div class="actions">
+        <button id="claudeBtn" class="btn primary">Claude에게 묻기</button>
+        <button id="clearClaudeBtn" class="btn ghost">답변 초기화</button>
+      </div>
+
+      <div id="claudeResponse" class="claude-response"></div>
+      <p class="hint">실제 배포 시에는 브라우저에서 직접 API 키를 노출하지 않도록 서버 프록시를 사용하는 것이 안전합니다.</p>
+    </section>
+
+    <section class="partner">
+      <h2>제휴 문의</h2>
+      <p class="partner-lead">광고·제휴·기타 제안은 아래 양식으로 남겨 주세요.</p>
+
+      <form id="partnerForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field">
+          <label for="partnerName">이름 / 회사명</label>
+          <input type="text" id="partnerName" name="name" required maxlength="60" placeholder="홍길동 / 주식회사 예시" />
+        </div>
+
+        <div class="field">
+          <label for="partnerEmail">회신받을 이메일</label>
+          <input type="email" id="partnerEmail" name="email" required placeholder="you@example.com" />
+        </div>
+
+        <div class="field">
+          <label for="partnerMessage">문의 내용</label>
+          <textarea id="partnerMessage" name="message" rows="5" required maxlength="2000" placeholder="제휴 형태와 간단한 소개를 적어 주세요."></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="[로또 번호 추천] 제휴 문의" />
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="gotcha" />
+
+        <div class="actions">
+          <button type="submit" id="partnerSubmitBtn" class="btn primary">문의 보내기</button>
+        </div>
+      </form>
+
+      <div id="partnerStatus" class="partner-status" role="status" aria-live="polite"></div>
+    </section>
+
     <section class="note">
       <h2>사용 방법</h2>
       <ul>
