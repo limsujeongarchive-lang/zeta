@@ -57,12 +57,6 @@ function renderPartnerMessage(text, type = "info") {
 async function submitPartnerForm(event) {
   event.preventDefault();
 
-  // Formspree에서 발급받은 폼 ID로 index.html의 action 값을 교체해야 동작합니다.
-  if (partnerForm.action.includes("YOUR_FORM_ID")) {
-    renderPartnerMessage("폼이 아직 연결되지 않았습니다. Formspree 폼 ID를 설정해 주세요.", "error");
-    return;
-  }
-
   partnerSubmitBtn.disabled = true;
   renderPartnerMessage("문의를 전송하는 중입니다...", "info");
 
