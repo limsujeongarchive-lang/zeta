@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>빨강 수치 측정기</title>
+  <title>빨강 수치 측정기 — 머신러닝 색 판정 | 제타</title>
+  <meta name="description" content="학습된 이미지 모델이 웹캠 화면이나 업로드한 사진에 빨강이 얼마나 있는지 백분율로 판정합니다. 이미지는 기기 밖으로 전송되지 않습니다." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="red.css" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2494566642796564"
@@ -18,8 +19,11 @@
     </header>
 
     <nav class="site-nav">
-      <a class="nav-link" href="index.html">로또 번호 추천</a>
+      <a class="nav-link" href="index.html">홈</a>
+      <a class="nav-link" href="lotto.html">로또 번호 추천</a>
       <a class="nav-link is-current" href="red.html" aria-current="page">빨강 수치 측정기</a>
+      <a class="nav-link" href="contact.html">제휴 문의</a>
+      <a class="nav-link" href="privacy.html">개인정보처리방침</a>
     </nav>
 
     <div class="mode-tabs" role="tablist">
@@ -68,6 +72,58 @@
         </p>
       </div>
     </section>
+
+    <section class="prose">
+      <h2>어떻게 판정하나요</h2>
+      <p>
+        이 페이지는 Google Teachable Machine으로 학습시킨 이미지 분류 모델을 사용합니다. 모델은
+        <b>빨강 있음</b>과 <b>빨강 없음</b> 두 갈래로 학습되어 있고, 화면이나 사진을 224×224 크기로 줄여 살펴본 뒤
+        각 갈래에 해당할 확률을 내놓습니다. 위에 표시되는 &ldquo;빨강 수치&rdquo;는 그중
+        <b>빨강 있음 쪽 확률</b>을 백분율로 바꾼 값입니다.
+      </p>
+      <p>
+        판정 문구는 이 수치를 기준으로 세 단계로 나뉩니다. 70% 이상이면 <b>빨강 있음</b>, 40~70% 사이면
+        <b>애매함</b>, 40% 미만이면 <b>빨강 없음</b>으로 표시합니다.
+      </p>
+
+      <h3>픽셀을 세는 방식과 무엇이 다른가요</h3>
+      <p>
+        화면에서 빨간 픽셀의 개수를 직접 세는 방법도 있지만, 그 방식은 조명이 붉게 깔린 장면이나 살구색 피부톤까지
+        빨강으로 집어냅니다. 학습 기반 모델은 &ldquo;사람이 빨강이라고 부를 만한 것&rdquo;의 예시를 보고 배우기 때문에,
+        수치 규칙으로 적기 어려운 판단을 흉내 낼 수 있습니다. 대신 학습에 쓰인 사진의 성격을 그대로 물려받습니다.
+      </p>
+
+      <h3>결과가 흔들릴 때</h3>
+      <ul>
+        <li><b>조명</b> — 노란 실내등이나 역광에서는 같은 물체도 다르게 판정될 수 있습니다.</li>
+        <li><b>거리와 크기</b> — 빨간 물체가 화면에서 너무 작으면 놓치기 쉽습니다. 가까이 대 보세요.</li>
+        <li><b>배경</b> — 배경이 복잡하면 수치가 요동칩니다. 단색 배경 앞에서 더 안정적입니다.</li>
+        <li><b>학습 범위 밖</b> — 학습할 때 보지 못한 종류의 장면에서는 신뢰도가 떨어집니다.</li>
+      </ul>
+
+      <h3>사진은 어디로도 가지 않습니다</h3>
+      <p>
+        모델 파일만 처음 한 번 내려받고, 이후 추론은 전부 브라우저 안에서 이루어집니다. 웹캠 영상과 업로드하신
+        사진은 서버로 전송되거나 저장되지 않으며, 측정 결과도 기록하지 않습니다. 카메라는
+        &ldquo;카메라 켜기&rdquo;를 누른 동안에만 켜지고 중지하거나 페이지를 벗어나면 즉시 꺼집니다.
+        자세한 내용은 <a href="privacy.html">개인정보처리방침</a>에 정리해 두었습니다.
+      </p>
+      <p class="hint">
+        웹캠 모드는 브라우저 보안 정책상 HTTPS 연결에서만 동작합니다. 카메라가 없거나 권한을 주기 어려우면
+        사진 업로드 모드를 이용하세요.
+      </p>
+    </section>
+
+    <footer class="site-footer">
+      <nav class="footer-links">
+        <a href="index.html">홈</a>
+        <a href="lotto.html">로또 번호 추천</a>
+        <a href="red.html">빨강 수치 측정기</a>
+        <a href="contact.html">제휴 문의</a>
+        <a href="privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>이 사이트는 Google 애드센스 광고를 게재하며, 광고 게재를 위해 쿠키가 사용될 수 있습니다.</p>
+    </footer>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4/dist/tf.min.js"></script>

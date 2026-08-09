@@ -3,74 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>로또 번호 추천 사이트</title>
+  <title>제타 — 로또 번호 추천과 빨강 수치 측정</title>
+  <meta name="description" content="로또 6/45 번호 생성기와 머신러닝 기반 빨강 수치 측정기를 무료로 사용해 보세요. 설치 없이 브라우저에서 바로 동작합니다." />
   <link rel="stylesheet" href="styles.css" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2494566642796564"
     crossorigin="anonymous"></script>
 </head>
 <body>
-  <main class="app-shell">
-    <header>
-      <h1>로또 번호 추천</h1>
-      <p>자동 또는 원하는 개수로 로또 번호를 추천받아 보세요.</p>
-    </header>
+  <div class="shell">
+    <section class="hero">
+      <p class="eyebrow">Zeta</p>
+      <h1>브라우저에서 바로 쓰는 작은 도구 모음</h1>
+      <p>
+        로또 번호를 뽑고, 사진 속 빨강을 측정합니다. 설치도 로그인도 필요 없고, 계산은 전부 사용자의 기기 안에서
+        끝납니다.
+      </p>
+    </section>
 
     <nav class="site-nav">
-      <a class="nav-link is-current" href="index.html" aria-current="page">로또 번호 추천</a>
+      <a class="nav-link is-current" href="index.html" aria-current="page">홈</a>
+      <a class="nav-link" href="lotto.html">로또 번호 추천</a>
       <a class="nav-link" href="red.html">빨강 수치 측정기</a>
+      <a class="nav-link" href="contact.html">제휴 문의</a>
+      <a class="nav-link" href="privacy.html">개인정보처리방침</a>
     </nav>
 
-    <section class="controls">
-      <label for="count">추천 세트 개수</label>
-      <input type="number" id="count" min="1" max="10" value="1" />
+    <div class="feature-grid">
+      <a class="feature-card" href="lotto.html">
+        <p class="eyebrow">Lotto 6 / 45</p>
+        <h2>로또 번호 추천</h2>
+        <p>1부터 45까지 중복 없는 여섯 개 번호를 한 번에 최대 5게임까지 뽑습니다. 합계와 홀짝·고저 분포도 함께 보여 드립니다.</p>
+        <span class="go">번호 뽑으러 가기 →</span>
+      </a>
 
-      <button id="generateBtn">번호 추천받기</button>
-      <button id="resetBtn" class="secondary">초기화</button>
-    </section>
+      <a class="feature-card" href="red.html">
+        <p class="eyebrow">Machine Learning</p>
+        <h2>빨강 수치 측정기</h2>
+        <p>학습된 이미지 모델이 웹캠 화면이나 업로드한 사진에 빨강이 얼마나 있는지 백분율로 판정합니다.</p>
+        <span class="go">측정하러 가기 →</span>
+      </a>
 
-    <section id="results" class="results"></section>
+      <a class="feature-card" href="contact.html">
+        <p class="eyebrow">Contact</p>
+        <h2>제휴 문의</h2>
+        <p>광고·제휴·기능 제안을 받습니다. 양식을 남겨 주시면 확인 후 회신드립니다.</p>
+        <span class="go">문의 남기기 →</span>
+      </a>
+    </div>
 
-    <section class="partner">
-      <h2>제휴 문의</h2>
-      <p class="partner-lead">광고·제휴·기타 제안은 아래 양식으로 남겨 주세요.</p>
+    <section class="prose">
+      <h2>어떤 사이트인가요</h2>
+      <p>
+        제타는 한 가지 일만 확실히 하는 작은 웹 도구를 모아 두는 곳입니다. 무언가를 계산하거나 판정하려고
+        프로그램을 설치하고 회원가입을 하는 일이 번거로워서 시작했습니다. 주소만 열면 곧바로 쓸 수 있고,
+        다 쓰면 그냥 닫으면 됩니다.
+      </p>
 
-      <form id="partnerForm" action="https://formspree.io/f/mzepdwaz" method="POST">
-        <div class="field">
-          <label for="partnerName">이름 / 회사명</label>
-          <input type="text" id="partnerName" name="name" required maxlength="60" placeholder="홍길동 / 주식회사 예시" />
-        </div>
+      <h3>기기 안에서 끝나는 계산</h3>
+      <p>
+        두 도구 모두 계산을 사용자의 브라우저 안에서 처리합니다. 로또 번호는 자바스크립트 난수로 그 자리에서
+        만들어지고, 빨강 측정은 학습된 모델 파일을 브라우저로 내려받아 화면에서 직접 추론합니다.
+        <b>뽑은 번호나 촬영한 화면, 업로드한 사진이 서버로 전송되거나 저장되는 일은 없습니다.</b>
+      </p>
 
-        <div class="field">
-          <label for="partnerEmail">회신받을 이메일</label>
-          <input type="email" id="partnerEmail" name="email" required placeholder="you@example.com" />
-        </div>
+      <h3>수집하는 정보</h3>
+      <p>
+        제타가 직접 수집하는 개인정보는 제휴 문의 양식에 적어 주시는 이름·이메일·문의 내용뿐입니다. 다만 이 사이트는
+        Google 애드센스 광고를 게재하므로, 광고 게재 과정에서 쿠키가 사용될 수 있습니다. 자세한 내용과 맞춤 광고를
+        끄는 방법은 <a href="privacy.html">개인정보처리방침</a>에 정리해 두었습니다.
+      </p>
 
-        <div class="field">
-          <label for="partnerMessage">문의 내용</label>
-          <textarea id="partnerMessage" name="message" rows="5" required maxlength="2000" placeholder="제휴 형태와 간단한 소개를 적어 주세요."></textarea>
-        </div>
-
-        <input type="hidden" name="_subject" value="[로또 번호 추천] 제휴 문의" />
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="gotcha" />
-
-        <div class="actions">
-          <button type="submit" id="partnerSubmitBtn" class="btn primary">문의 보내기</button>
-        </div>
-      </form>
-
-      <div id="partnerStatus" class="partner-status" role="status" aria-live="polite"></div>
-    </section>
-
-    <section class="note">
-      <h2>사용 방법</h2>
+      <h3>브라우저 요구사항</h3>
       <ul>
-        <li>"번호 추천받기" 버튼을 눌러 6개 번호를 자동으로 생성합니다.</li>
-        <li>한 세트는 1부터 45까지의 중복 없는 번호 6개로 구성됩니다.</li>
-        <li>추천 결과는 랜덤으로 생성되며 당첨을 보장하지 않습니다.</li>
+        <li>로또 번호 추천 — 최신 브라우저면 모두 동작합니다.</li>
+        <li>빨강 수치 측정 — 웹캠 모드는 카메라 권한과 HTTPS 연결이 필요합니다. 카메라가 없으면 사진 업로드 모드를 쓰세요.</li>
+        <li>모바일 화면에 맞춰 배치가 바뀌므로 휴대폰에서도 그대로 사용할 수 있습니다.</li>
       </ul>
     </section>
-  </main>
 
-  <script src="script.js"></script>
+    <footer class="site-footer">
+      <nav class="footer-links">
+        <a href="index.html">홈</a>
+        <a href="lotto.html">로또 번호 추천</a>
+        <a href="red.html">빨강 수치 측정기</a>
+        <a href="contact.html">제휴 문의</a>
+        <a href="privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>이 사이트는 Google 애드센스 광고를 게재하며, 광고 게재를 위해 쿠키가 사용될 수 있습니다. 로또 번호 추천은 참고용 도구이며 당첨을 보장하지 않습니다.</p>
+    </footer>
+  </div>
 </body>
 </html>
