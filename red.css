@@ -1,0 +1,191 @@
+/* ── 빨강 수치 측정기 ─────────────────────────────────── */
+.red-shell {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 32px 20px 72px;
+}
+
+.red-head {
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.red-head h1 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4.2vw, 38px);
+  letter-spacing: -.01em;
+  margin: 4px 0 6px;
+}
+
+.red-head p:last-child {
+  margin: 0;
+  color: var(--ink-2);
+  max-width: 48ch;
+}
+
+.mode-tabs { display: flex; gap: 8px; margin: 22px 0 18px; }
+
+.mode-tab {
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink-2);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+
+.mode-tab:hover { border-color: var(--accent); color: var(--ink); }
+
+.mode-tab[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--card);
+  font-weight: 600;
+}
+
+.red-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 22px;
+  align-items: start;
+}
+
+@media (max-width: 820px) {
+  .red-grid { grid-template-columns: 1fr; }
+}
+
+.red-panel {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.red-panel.result { display: grid; gap: 14px; justify-items: center; text-align: center; }
+
+/* 화면 / 업로드 영역 */
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  border: 1px dashed var(--rule);
+  border-radius: 10px;
+  background: var(--card-2);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.stage canvas {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.stage-empty { margin: 0; color: var(--ink-3); font-size: 13.5px; padding: 24px; text-align: center; }
+
+.drop-zone {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  border: 1px dashed var(--rule);
+  border-radius: 10px;
+  background: var(--card-2);
+  color: var(--ink-3);
+  font-size: 13.5px;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+.drop-zone:hover,
+.drop-zone.dragging { border-color: var(--accent); background: var(--accent-soft); }
+
+.drop-zone img { max-width: 100%; max-height: 320px; border-radius: 8px; display: block; }
+
+.status { margin: 12px 0 0; font-size: 13px; color: var(--ink-3); min-height: 20px; }
+.status[data-type="error"] { color: #d9534f; }
+
+/* 게이지 */
+.gauge {
+  --p: 0;
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    conic-gradient(#d9534f calc(var(--p) * 1%), var(--rule-soft) 0);
+  transition: background .25s ease;
+}
+
+.gauge-inner {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background: var(--card);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+}
+
+.gauge-inner strong {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+
+.gauge-inner small { font-size: 11.5px; color: var(--ink-3); }
+
+.verdict {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.verdict[data-level="high"] { color: #d9534f; }
+.verdict[data-level="mid"] { color: #c98a1e; }
+.verdict[data-level="low"] { color: var(--ink-2); }
+
+/* 클래스별 확률 막대 */
+.bars { width: 100%; display: grid; gap: 10px; text-align: left; }
+
+.bar-row { display: grid; gap: 5px; }
+
+.bar-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.bar-head b { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+
+.bar-track {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--rule-soft);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--ink-3);
+  transition: width .2s ease;
+}
+
+.bar-row.is-red .bar-fill { background: #d9534f; }
+
+.red-panel .hint { text-align: left; }

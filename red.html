@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>빨강 수치 측정기</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="red.css" />
+</head>
+<body>
+  <main class="red-shell">
+    <header class="red-head">
+      <p class="eyebrow">Teachable Machine</p>
+      <h1>빨강 수치 측정기</h1>
+      <p>웹캠이나 사진 속에 빨강이 얼마나 있는지 학습된 모델이 판정합니다.</p>
+    </header>
+
+    <div class="mode-tabs" role="tablist">
+      <button id="tabCam" class="mode-tab" role="tab" aria-selected="true">웹캠으로 측정</button>
+      <button id="tabFile" class="mode-tab" role="tab" aria-selected="false">사진으로 측정</button>
+    </div>
+
+    <section class="red-grid">
+      <div class="red-panel">
+        <div id="camPane" class="pane">
+          <div id="stage" class="stage">
+            <p class="stage-empty">카메라를 켜면 실시간으로 측정합니다.</p>
+          </div>
+          <div class="actions">
+            <button id="startBtn" class="btn primary">카메라 켜기</button>
+            <button id="stopBtn" class="btn ghost" disabled>중지</button>
+          </div>
+        </div>
+
+        <div id="filePane" class="pane" hidden>
+          <label id="dropZone" class="drop-zone" for="fileInput">
+            <img id="preview" alt="선택한 사진 미리보기" hidden />
+            <span id="dropText">사진을 끌어다 놓거나 클릭해서 선택하세요</span>
+          </label>
+          <input type="file" id="fileInput" accept="image/*" hidden />
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="red-panel result">
+        <div class="gauge" id="gauge" style="--p: 0">
+          <div class="gauge-inner">
+            <strong id="score">--</strong>
+            <small>빨강 수치</small>
+          </div>
+        </div>
+
+        <p id="verdict" class="verdict">측정 대기 중</p>
+
+        <div id="bars" class="bars"></div>
+
+        <p class="hint">
+          수치는 모델이 예측한 &ldquo;빨강 있음&rdquo; 확률입니다. 학습에 쓰인 사진과 조명·배경이
+          많이 다르면 결과가 흔들릴 수 있습니다.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <script src="red.js"></script>
+</body>
+</html>
