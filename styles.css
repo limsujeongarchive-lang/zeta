@@ -356,62 +356,6 @@ button, input, select { font: inherit; color: inherit; }
 
 .btn.mini:hover { color: var(--accent); border-color: var(--accent); }
 
-.claude {
-  margin-top: 32px;
-  padding: 22px 20px;
-  border: 1px solid var(--rule);
-  border-radius: 10px;
-  background: var(--card);
-  box-shadow: var(--shadow);
-}
-
-.claude h2 {
-  font-size: 18px;
-  margin-bottom: 14px;
-}
-
-.claude textarea,
-.claude input {
-  width: 100%;
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  padding: 12px 14px;
-  background: var(--card-2);
-  color: var(--ink);
-  min-height: 56px;
-}
-
-.claude textarea {
-  resize: vertical;
-}
-
-.claude-response {
-  min-height: 96px;
-  margin-top: 16px;
-  padding: 16px;
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--accent-soft) 25%, var(--card) 75%);
-  color: var(--ink);
-  white-space: pre-wrap;
-  line-height: 1.7;
-}
-
-.claude-response[data-type="error"] {
-  border: 1px solid #e97373;
-  background: rgba(233, 115, 115, 0.12);
-}
-
-.claude-response[data-type="success"] {
-  border: 1px solid #4f9e6f;
-  background: rgba(79, 158, 111, 0.12);
-}
-
-.claude .hint {
-  margin: 14px 0 0;
-  font-size: 13px;
-  color: var(--ink-3);
-}
-
 /* ── 제휴 문의 ────────────────────────────────────────── */
 
 .partner {
