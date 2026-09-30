@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boffi 기술 사무실 | Studio Gerosa 프로젝트 (한국어)</title>
+  <meta name="description" content="Studio Gerosa가 설계한 Boffi S.p.A. 기술 사무실(이탈리아 렌타테 술 세베조, 2024) 프로젝트 한국어 소개 페이지." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #777777;
+      --line: #e3e3e3;
+      --ph: #ececea;
+      --ph-dark: #d9d9d5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* 헤더 */
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo { font-weight: 700; letter-spacing: 0.18em; font-size: 14px; }
+    .nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.06em; }
+    .nav a.active { font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+    .lang { display: flex; gap: 10px; font-size: 12px; color: var(--muted); }
+    .lang .current { color: var(--fg); font-weight: 500; }
+    .menu-toggle { display: none; background: none; border: 0; font-size: 13px; cursor: pointer; }
+
+    /* 본문 */
+    main { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+    .breadcrumb { padding: 28px 0 0; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+    .breadcrumb span { margin: 0 6px; }
+
+    .ph {
+      background: linear-gradient(135deg, var(--ph) 0%, var(--ph-dark) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: #9a9a95; font-size: 12px; letter-spacing: 0.12em;
+      width: 100%;
+    }
+    .hero { margin-top: 20px; aspect-ratio: 16 / 8; }
+
+    .project-head {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      padding: 56px 0 48px; border-bottom: 1px solid var(--line);
+    }
+    .project-head h1 { font-size: 34px; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; }
+    .project-head .sub { margin-top: 10px; color: var(--muted); font-size: 14px; }
+
+    .meta { display: grid; grid-template-columns: 120px 1fr; row-gap: 10px; column-gap: 20px; font-size: 14px; }
+    .meta dt { color: var(--muted); }
+    .meta dd { font-weight: 400; }
+
+    .desc {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      padding: 48px 0 64px;
+    }
+    .desc h2 { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; color: var(--muted); }
+    .desc p + p { margin-top: 1.1em; }
+    .desc strong { font-weight: 500; }
+
+    /* 갤러리 */
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .gallery .wide { grid-column: span 2; }
+    .gallery .wide .ph { aspect-ratio: 16 / 7; }
+    .gallery .tall .ph { aspect-ratio: 4 / 5; }
+    .gallery figure { margin: 0; }
+    .gallery figcaption { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+    /* 수치 요약 */
+    .facts {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      margin: 72px 0;
+    }
+    .fact { padding: 28px 20px; border-right: 1px solid var(--line); }
+    .fact:last-child { border-right: 0; }
+    .fact .num { font-size: 30px; font-weight: 500; }
+    .fact .label { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
+
+    /* 이전/다음 */
+    .pager {
+      display: flex; justify-content: space-between; gap: 24px;
+      padding: 32px 0 72px; font-size: 14px;
+    }
+    .pager small { display: block; color: var(--muted); font-size: 11px; letter-spacing: 0.14em; }
+
+    /* 푸터 */
+    .site-footer { border-top: 1px solid var(--line); }
+    .footer-inner {
+      max-width: 1400px; margin: 0 auto; padding: 40px 32px 48px;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+      font-size: 13px; color: var(--muted);
+    }
+    .footer-inner h3 { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; color: var(--fg); margin-bottom: 10px; }
+    .notice { max-width: 1400px; margin: 0 auto; padding: 0 32px 32px; font-size: 11px; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .project-head, .desc { grid-template-columns: 1fr; gap: 28px; }
+      .facts { grid-template-columns: repeat(2, 1fr); }
+      .fact:nth-child(2) { border-right: 0; }
+      .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .header-inner, main, .footer-inner, .notice { padding-left: 16px; padding-right: 16px; }
+      .menu-toggle { display: block; }
+      .nav {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; gap: 0; background: #fff; border-bottom: 1px solid var(--line);
+      }
+      .nav.open { display: flex; }
+      .nav a { padding: 14px 16px; border-top: 1px solid var(--line); }
+      .lang { display: none; }
+      .project-head h1 { font-size: 26px; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery .wide { grid-column: auto; }
+      .gallery .wide .ph { aspect-ratio: 4 / 3; }
+      .hero { aspect-ratio: 4 / 3; }
+      .meta { grid-template-columns: 96px 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top">STUDIO GEROSA</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">메뉴</button>
+      <nav class="nav" id="nav">
+        <a href="#top" class="active">프로젝트</a>
+        <a href="#desc">스튜디오</a>
+        <a href="#footer">연락처</a>
+      </nav>
+      <div class="lang" aria-label="언어">
+        <a href="https://www.studio-gerosa.it/it/progetti/uffici-tecnici-boffi/source:works" rel="noopener">IT</a>
+        <span class="current">KO</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <p class="breadcrumb">프로젝트<span>/</span>작업<span>/</span>Boffi 기술 사무실</p>
+
+    <div class="ph hero" role="img" aria-label="대표 이미지 자리">MAIN IMAGE</div>
+
+    <section class="project-head">
+      <div>
+        <h1>Boffi 기술 사무실</h1>
+        <p class="sub">Uffici tecnici Boffi · 렌타테 술 세베조, 2024</p>
+      </div>
+      <dl class="meta">
+        <dt>위치</dt><dd>이탈리아 몬차 브리안차 주, 렌타테 술 세베조</dd>
+        <dt>연도</dt><dd>2024</dd>
+        <dt>클라이언트</dt><dd>Boffi S.p.A.</dd>
+        <dt>용도</dt><dd>업무시설 (기존 생산동 증축)</dd>
+        <dt>설계</dt><dd>Studio Gerosa<br />건축가 Andrea Gerosa, 엔지니어·건축가 Franco Gerosa</dd>
+        <dt>구성</dt><dd>남측 입면 현수 모듈 7개, 모듈당 약 36㎡</dd>
+      </dl>
+    </section>
+
+    <section class="desc" id="desc">
+      <h2>프로젝트 개요</h2>
+      <div>
+        <p>이탈리아 주방·욕실 가구 브랜드 Boffi의 본사 부지에 새 기술 사무실을 더한 프로젝트입니다. 생산 공간과 바로 맞닿은 업무 공간을 어떻게 확보할지가 출발점이었습니다.</p>
+        <p>클라이언트의 조건은 두 가지였습니다. <strong>생산동 바닥면적을 줄이지 않을 것</strong>, 그리고 <strong>외부 주차 공간을 차지하지 않을 것</strong>. 지상에 새 건물을 앉힐 자리가 사실상 없었던 셈입니다.</p>
+        <p>설계팀은 증축을 땅이 아닌 공중에서 해결했습니다. 기존 건물의 남측 입면을 따라 7개의 독립된 볼륨을 매달아 각 모듈이 약 36㎡의 사무 공간을 갖도록 했고, 모듈 아래는 비워 두어 지상의 동선과 주차 공간을 그대로 유지했습니다.</p>
+        <p>그 결과 구조적 가벼움과 현대적인 업무 방식이 균형을 이루는, 생산 현장 위에 떠 있는 작업 공간이 만들어졌습니다.</p>
+      </div>
+    </section>
+
+    <section class="gallery" aria-label="이미지 갤러리">
+      <figure class="wide">
+        <div class="ph" role="img" aria-label="남측 입면 이미지 자리">SOUTH FACADE</div>
+        <figcaption>남측 입면을 따라 배치된 현수 모듈</figcaption>
+      </figure>
+      <figure class="tall">
+        <div class="ph" role="img" aria-label="모듈 하부 이미지 자리">UNDER THE MODULES</div>
+        <figcaption>모듈 하부, 비워 둔 지상 공간</figcaption>
+      </figure>
+      <figure class="tall">
+        <div class="ph" role="img" aria-label="실내 이미지 자리">INTERIOR</div>
+        <figcaption>모듈 내부 사무 공간</figcaption>
+      </figure>
+      <figure class="wide">
+        <div class="ph" role="img" aria-label="디테일 이미지 자리">DETAIL</div>
+        <figcaption>기존 건물과 모듈의 접합부</figcaption>
+      </figure>
+    </section>
+
+    <section class="facts" aria-label="주요 수치">
+      <div class="fact"><div class="num">7</div><div class="label">현수 모듈</div></div>
+      <div class="fact"><div class="num">~36㎡</div><div class="label">모듈당 면적</div></div>
+      <div class="fact"><div class="num">0㎡</div><div class="label">잃은 생산·주차 면적</div></div>
+      <div class="fact"><div class="num">2024</div><div class="label">완공</div></div>
+    </section>
+
+    <nav class="pager" aria-label="프로젝트 이동">
+      <a href="https://www.studio-gerosa.it/it" rel="noopener"><small>이전</small>전체 프로젝트</a>
+      <a href="#top" style="text-align:right"><small>위로</small>페이지 상단</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>STUDIO GEROSA</h3>
+        <p>건축 · 엔지니어링<br />이탈리아 롬바르디아</p>
+      </div>
+      <div>
+        <h3>원문</h3>
+        <p><a href="https://www.studio-gerosa.it/it/progetti/uffici-tecnici-boffi/source:works" rel="noopener">studio-gerosa.it 프로젝트 페이지 (이탈리아어)</a></p>
+      </div>
+      <div>
+        <h3>언어</h3>
+        <p>한국어 (비공식)</p>
+      </div>
+    </div>
+    <p class="notice">이 페이지는 Studio Gerosa의 공식 사이트가 아니며, 공개된 프로젝트 정보를 바탕으로 한국어로 재구성한 비공식 소개 페이지입니다. 이미지는 저작권 보호를 위해 자리 표시로 대체했습니다.</p>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    nav.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</body>
+</html>
